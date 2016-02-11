@@ -19,6 +19,10 @@ body {
 	background:#ffffff;
 	font-size: 100%;
 }
+img {
+	max-width: 100%;
+}
+
 /* start header */
 .header_bg{
 	border-top:8px groove #3b3b3b;
@@ -837,6 +841,7 @@ body {
 	.logo img{
 		float: none;
 		height: 15%;
+		width: 50px;
 	}
 	.company_ad{
 		margin-left: 0;
@@ -847,11 +852,42 @@ body {
 	.technology h4 {
 		font-size: 17px;
 	}
+	.logo h1{
+		font-size: 20px;
+	}
+	.logo h2{
+		font-size: 10px;
+	}
+	.sponsor img{
+		height: 15%;
+		width: 80%;
+	}
+	.footer_bg div{
+		align-items: center;
+		text-align: center;
+	}
+	.footer_bg h3{
+		font-size: 15px;
+		text-align: center;
+	}
+	.nav > li > a {
+		font-size: 10px;
+		padding: 10px 20px;
+		text-transform: uppercase;
+	}
+	.footer_bg p{
+		font-size: 12px;
+	}
+	.main_bg div{
+		margin: 0.2%;
+	}
+
 }
 @media only screen and (max-width: 480px) {
 	.logo img{
 		float: none;
 		height: 15%;
+		width:  50px;
 	}
 	.images_1_of_4 h4 {
 		margin: 20px 0 10px;
@@ -885,6 +921,7 @@ body {
 	.logo img{
 		float: none;
 		height: 15%;
+		width:  50px;
 	}
 	.main {
 		padding: 8% 2%;

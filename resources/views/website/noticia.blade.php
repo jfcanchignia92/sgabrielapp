@@ -28,44 +28,5 @@
     </div>
 @endsection
 @section('content')
-    <br>
-    <div class="main_bg"><!-- start main -->
-        <div class="container">
-            <div class="row">
-                <form class="form-horizontal">
-                        <!-- Select Basic -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="selectbasic">Certificado de:</label>
-                            <div class="col-md-4">
-                                <select id="selectbasic" name="selectbasic" class="form-control">
-                                    <option value="1">Bautismo</option>
-                                    <option value="2">Matrimonio</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="textinput">Apellidos:</label>
-                            <div class="col-md-4">
-                                <input id="textinput" name="textinput" type="text" placeholder="Apellidos Completos" class="form-control input-md" required="">
-                            </div>
-                        </div>
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="textinput">Nombres:</label>
-                            <div class="col-md-4">
-                                <input id="textinput" name="textinput" type="text" placeholder="Nombres Completos" class="form-control input-md" required="">
-                            </div>
-                        </div>
-                        <!-- Button -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="singlebutton"></label>
-                            <div class="col-md-4">
-                                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Buscar</button>
-                            </div>
-                        </div>
-                </form>
-            </div>
-        </div>
-    </div>
+
 @endsection

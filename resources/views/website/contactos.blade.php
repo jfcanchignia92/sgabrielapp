@@ -30,8 +30,11 @@
 @section('content')
     <div class="main_bg"><!-- start main -->
         <div class="container">
-            <div class="main row">
-                <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe>
+            <div class="row">
+                <h2>&nbsp;Donde nos encontramos</h2>
+                <br>
+                <div class="col-md-6" id="googleMap" style="height:380px;"></div>
+                <div class="col-md-6" id="googlePanorama" style="height:380px;"></div>
             </div>
         </div>
     </div><!-- end main -->
@@ -39,23 +42,22 @@
         <div class="container">
             <div class="main row">
                 <div class="col-md-4 company_ad">
-                    <h2>find Address :</h2>
+                    <h2>Direcci&oacuten:</h2>
                     <address>
-                        <p>500 Lorem Ipsum Dolor Sit,</p>
-                        <p>22-56-2-9 Sit Amet, Lorem,</p>
-                        <p>USA</p>
-                        <p>Phone:(00) 222 666 444</p>
-                        <p>Fax: (000) 000 00 00 0</p>
-                        <p>Email: <a href="mailto:info@mycompany.com">info(at)mycompany.com</a></p>
-                        <p>Follow on: <a href="#">Facebook</a>, <a href="#">Twitter</a></p>
+                        <p>Av. Amazonas y Segunda Transversal,</p>
+                        <p>San Rafael, Valle de los Chillos</p>
+                        <p>Quito - Ecuador</p>
+                        <p>Tel&eacutefono: (02) 2863757</p>
+                        <p>Email: <a href="mailto:info@mycompany.com">sgabrielchilos@gmail.com</a></p>
+                        <p>SIguenos en: <a href="#">Facebook</a>, <a href="#">Twitter</a></p>
                     </address>
                 </div>
                 <div class="col-md-8">
                     <div class="contact-form">
-                        <h2>Contact Us</h2>
+                        <h2>Contactese con nosotros</h2>
                         <form method="post" action="contact-post.html">
                             <div>
-                                <span>name</span>
+                                <span>Nombre</span>
                                 <span><input type="username" class="form-control" id="userName"></span>
                             </div>
                             <div>
@@ -63,11 +65,11 @@
                                 <span><input type="email" class="form-control" id="inputEmail3"></span>
                             </div>
                             <div>
-                                <span>subject</span>
+                                <span>Asunto</span>
                                 <span><textarea name="userMsg"> </textarea></span>
                             </div>
                             <div>
-                                <label class="fa-btn btn-1 btn-1e"><input type="submit" value="submit us"></label>
+                                <label class="fa-btn btn-1 btn-1e"><input type="submit" value="Enviar"></label>
                             </div>
                         </form>
                     </div>
