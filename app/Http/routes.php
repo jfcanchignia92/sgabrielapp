@@ -11,7 +11,7 @@
 |
 */
 
-//Route::get('/', 'WelcomeController@index');
+//Route::get('/', 'StartController@index');
 Route::get('/home','StartController@index');
 Route::get('/ministerios','StartController@ministerios');
 Route::get('/online','StartController@online');
@@ -21,6 +21,9 @@ Route::get('/noticia','StartController@noticias');
 Route::get('/acerca','StartController@acerca');
 Route::get('ministerios/{nombre}','StartController@ministerioInfo');
 Route::get('adminpage', 'HomeController@index');
+Route::get('adminpage/Ministerios','HomeController@ministerios');
+Route::get('adminpage/Certificados','HomeController@certificados');
+Route::resource('ministerios','crud_controllers\MinisterioController');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

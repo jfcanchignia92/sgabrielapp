@@ -55,6 +55,11 @@
   z-index: 1;
 }
 .responsive-calendar .day.today a {
-  background: #bfddff;
+  background: #ff7b86;
   color: #ffffff;
+}
+@media (max-width: 800px ) {
+  .responsive-calendar .day{
+    width: 13%;
+  }
 }

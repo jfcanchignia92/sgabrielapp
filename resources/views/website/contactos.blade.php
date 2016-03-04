@@ -48,7 +48,7 @@
                         <p>San Rafael, Valle de los Chillos</p>
                         <p>Quito - Ecuador</p>
                         <p>Tel&eacutefono: (02) 2863757</p>
-                        <p>Email: <a href="mailto:info@mycompany.com">sgabrielchilos@gmail.com</a></p>
+                        <p>Email: <a href="mailto:sgabrielchillos@gmail.com">sgabrielchillos@gmail.com</a></p>
                         <p>SIguenos en: <a href="#">Facebook</a>, <a href="#">Twitter</a></p>
                     </address>
                 </div>

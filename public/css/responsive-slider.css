@@ -36,7 +36,7 @@
 }
 .responsive-slider .slides ul li .slide-body .caption.header {
   top: 28%;
-  left: 8%;
+  left: 28%;
 }
 .responsive-slider .slides ul li .slide-body .caption.header h2 {
   font-size: 40px;
@@ -72,11 +72,16 @@
     right: -10px;
   }
 }
-@media (max-width: 480px) {
-  .responsive-slider .slides ul li .slide-body .caption.sub {
-    font-size: 10px;
-    bottom: 5px;
-    right: 0;
+.responsive-slider .slides ul li .slide-body .caption.link {
+  bottom: -30px;
+  right: -20px;
+  font-weight: bold;
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .responsive-slider .slides ul li .slide-body .caption.link {
+    font-size: 11px;
+    bottom: 0px;
+    right: -10px;
   }
 }
 .responsive-slider .slides ul li .slide-body .caption.img-html5 {
@@ -87,37 +92,17 @@
 .responsive-slider .slides ul li .slide-body .caption.img-html5 img {
   max-width: 100%;
 }
-.responsive-slider .slides ul li .slide-body .caption.img-css3 {
-  top: 57%;
-  right: 12%;
-  width: 10%;
-}
-.responsive-slider .slides ul li .slide-body .caption.img-css3 img {
-  max-width: 100%;
-}
-.responsive-slider .slides ul li .slide-body .caption.img-bootstrap {
-  top: 48%;
-  right: 12%;
-  width: 11%;
-}
-.responsive-slider .slides ul li .slide-body .caption.img-bootstrap img {
-  max-width: 100%;
-}
-.responsive-slider .slides ul li .slide-body .caption.img-twitter {
-  top: 19%;
-  right: 12%;
-  width: 11%;
-}
-.responsive-slider .slides ul li .slide-body .caption.img-twitter img {
-  max-width: 100%;
-}
-.responsive-slider .slides ul li .slide-body .caption.img-jquery {
-  top: 66%;
-  right: 12%;
-  width: 33%;
-}
-.responsive-slider .slides ul li .slide-body .caption.img-jquery img {
-  max-width: 100%;
+@media (max-width: 480px) {
+  .responsive-slider .slides ul li .slide-body .caption.sub {
+    font-size: 10px;
+    bottom: 5px;
+    right: 0;
+  }
+  .responsive-slider .slides ul li .slide-body .caption.link {
+    font-size: 10px;
+    bottom: 5px;
+    right: 0;
+  }
 }
 .responsive-slider .slider-control {
   position: absolute;
@@ -163,8 +148,8 @@
 .responsive-slider .pages .page {
   display: inline-block;
   color: transparent;
-  width: 5px;
-  height: 5px;
+  width: 15px;
+  height: 15px;
   border: 3px solid #fff;
   border-radius: 50%;
   opacity: 0.5;

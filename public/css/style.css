@@ -22,10 +22,11 @@ body {
 img {
 	max-width: 100%;
 }
+blockquote { border-left: 5px solid #f86466; background: white; }
+
 
 /* start header */
 .header_bg{
-	border-top:8px groove #3b3b3b;
 	background: #ffffff;
 	background: url('../images/header_font.jpg');
 }
@@ -111,6 +112,7 @@ img {
 /* menu */
 .h_menu{
 	padding: 0;
+	padding-left: 80px;
 	background: #3B3B3B;
 }
 .navbar {
@@ -323,7 +325,7 @@ img {
 }
 /* start footer */
 .footer_bg{
-	background: #f6f6f6;
+	background: #656e73;
 }
 .footer{
 	padding: 4%;
@@ -775,6 +777,7 @@ img {
 	}
 	.h_menu {
 		position: relative;
+		padding: 0;
 	}	
 	.soc_icons {
 		position: absolute;
@@ -880,6 +883,17 @@ img {
 	}
 	.main_bg div{
 		margin: 0.2%;
+	}
+	.slide{
+		height: 150px;
+	}
+	.carousel-inner{
+		height: 150px;
+		padding-bottom: 1px;
+	}
+	.carousel-caption{
+		height: 150px;
+		padding-bottom: 1px;
 	}
 
 }

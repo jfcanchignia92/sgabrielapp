@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>San Gabriel de Los Chillos</title>
@@ -16,20 +17,6 @@
     <script type="text/javascript" src="../../public/js/jquery.min.js"></script>
     <script type="text/javascript" src="../../public/js/bootstrap.js"></script>
     <script type="text/javascript" src="../../public/js/bootstrap.min.js"></script>
-    <!-- start slider -->
-    <link href="../../public/css/slider.css" rel="stylesheet" type="text/css" media="all" />
-    <script type="text/javascript" src="../../public/js/modernizr.custom.28468.js"></script>
-    <script type="text/javascript" src="../../public/js/jquery.cslider.js"></script>
-    <script type="text/javascript">
-        $(function() {
-
-            $('#da-slider').cslider({
-                autoplay : true,
-                bgincrement : 450
-            });
-
-        });
-    </script>
     <link rel="stylesheet" href="../../public/fonts/css/font-awesome.min.css">
     <!--font-Awesome-->
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
@@ -88,26 +75,33 @@
                 <div><img src="../../public/images/{{$ministerio->MNT_IMG}}"></div>
                 </br>
                 </br>
-                <p><h4>{!!str_replace("*","&#8226",str_replace("\n","<br>",$ministerio->MNT_INFORMACION))!!}</h4></p>
-            @if($ministerio->MNT_ID ==1)
-                <div class="read_more">
-                    <a href="../online/Certificados" class="fa-btn btn-1 btn-1e">Obten tu Certificado</a>
-                </div>
-            @endif
-            @if($ministerio->MNT_ID ==5)
-                <div class="read_more">
-                    <a href="../online/Reservas" class="fa-btn btn-1 btn-1e">Reserva tu lugar</a>
-                </div>
-            @endif
+                <div>{!!$ministerio->MNT_INFORMACION!!}</div>
+                @if($ministerio->MNT_ID ==1)
+                    <div class="read_more">
+                        <a href="../online/Certificados" class="fa-btn btn-1 btn-1e">Obten tu Certificado</a>
+                    </div>
+                @endif
+                @if($ministerio->MNT_ID ==5)
+                    <div class="read_more">
+                        <a href="../online/Reservas" class="fa-btn btn-1 btn-1e">Reserva tu lugar</a>
+                    </div>
+                @endif
         </div>
     </div>
 </div>
 <!-- endsection CONTENT -->
-
+<br>
+<br>
 <footer>
     <div class="footer_bg"><!-- start footer -->
         <div class="container">
             <div class="row  footer">
+                <h3>Somos parte de una Gran Iglesia</h3>
+                <br>
+                <div class="col-md-4 sponsor"><a href="http://www.arquidiocesisdequito.com.ec/"><img src="../../public/images/Arquidiosesis.jpg"></a></div>
+                <div class="col-md-4 sponsor"><a href="http://www.conferenciaepiscopal.ec"><img src="../../public/images/Conferencia.jpg"></a></div>
+                <div class="col-md-4 sponsor"><a href="http://w2.vatican.va/content/vatican/es.html"><img src="../../public/images/Papado.jpg"></a></div>
+                <br>
                 <div class="copy text-center">
                     <p class="link">
                         <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>

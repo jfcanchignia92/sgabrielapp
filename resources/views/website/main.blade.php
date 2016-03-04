@@ -16,11 +16,6 @@
     <script type="text/javascript" src="../public/js/jquery.min.js"></script>
     <script type="text/javascript" src="../public/js/bootstrap.js"></script>
     <script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
-    <!-- start slider -->
-    <link href="../public/css/slider.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="../public/css/barousel_demo.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../public/js/modernizr.custom.28468.js"></script>
-    <link rel="stylesheet" href="../public/fonts/css/font-awesome.min.css">
     <!--font-Awesome-->
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
@@ -69,12 +64,15 @@
         });
     </script>
     <link href="../public//css/responsive-slider.css" rel="stylesheet" media="screen">
-    <!--<script src="../public/js/jquery.js"></script> -->
     <script src="../public/js/jquery.event.move.js"></script>
     <script src="../public/js/responsive-slider.js"></script>
     <script>
         $( document ).ready( function() {
-            $('.responsive-slider').responsiveSlider();
+            $('.responsive-slider').responsiveSlider({
+                autoplay: true,
+                interval: 5000,
+                transitionTime: 300
+            });
         });
     </script>
 </head>
@@ -83,7 +81,7 @@
     <div class="container">
         <div class="row header">
             <div class="logo navbar-left">
-                <p class="main_img"><a href="home"><img src="../public/images/sgabriel2.png"/></a>
+                <p class="main_img"><a href="home"><img src="../public/images/sgabriel2.png"/></a></p>
 			    <h1><a href="home">Parroquia Eclesi&aacutestica</a></h1>
                 <h1><a href="home">"San Gabriel de los Chillos"</a></h1>
 			    <h2>"La verdad engendra verdad, y Dios es verdad; el amor engendra vida, y Dios es vida; el Se&ntildeor crea amor y el amor es el milagro."</h2></p>
@@ -94,6 +92,8 @@
 @yield('menu')
 <br>
 @yield('content')
+<br>
+<br>
 <footer>
         <div class="footer_bg"><!-- start footer -->
             <div class="container">
