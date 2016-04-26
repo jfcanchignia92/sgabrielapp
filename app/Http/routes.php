@@ -11,19 +11,29 @@
 |
 */
 
+/*--------------*/
+/*WebSite Routes*/
+/*--------------*/
 //Route::get('/', 'StartController@index');
 Route::get('/home','StartController@index');
-Route::get('/ministerios','StartController@ministerios');
+Route::get('/ministerios','crud_controllers\MinisterioController@index1');
+Route::get('ministerios/{nombre}','StartController@ministerioInfo');
 Route::get('/online','StartController@online');
 Route::get('/online/{nombre}','StartController@servicioOnline');
 Route::get('/contactenos','StartController@contactos');
 Route::get('/noticia','StartController@noticias');
 Route::get('/acerca','StartController@acerca');
-Route::get('ministerios/{nombre}','StartController@ministerioInfo');
+
+
+/*----------------*/
+/*AdminPage Routes*/
+/*----------------*/
 Route::get('adminpage', 'HomeController@index');
-Route::get('adminpage/Ministerios','HomeController@ministerios');
+Route::get('adminpage/Inicio', 'HomeController@inicio');
 Route::get('adminpage/Certificados','HomeController@certificados');
-Route::resource('ministerios','crud_controllers\MinisterioController');
+Route::resource('adminpage/Ministerios','crud_controllers\MinisterioController');
+Route::resource('adminpage/Certificados','crud_controllers\CertificadoController');
+Route::resource('adminpage/RegistrosB','crud_controllers\RegistroBautismalController');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

@@ -2,11 +2,10 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Registro extends Model {
+class RegistroMatrimonial extends Model {
 
 	//
-    protected $table = 'registros_sacramentales';
+    protected $table = 'registros_matrimoniales';
     public $timestamps = false;
     public $primaryKey = 'rgt_id';
-
 }

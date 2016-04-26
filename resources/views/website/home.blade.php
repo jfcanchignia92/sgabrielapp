@@ -31,65 +31,63 @@
     <br>
     <div class="main_bg"><!-- start main -->
         <div class="container">
-            <!-- Responsive slider - START -->
-            <div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true">
-                <div class="slides" data-group="slides">
-                    <ul>
-                        <li>
-                            <div class="slide-body" data-group="slide">
-                                <img src="../public/images/slide.jpg">
-                                <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                                    <h2>Titulo 1</h2>
-                                    <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300"><p>Esta noticia describe el estreno de la pagina web de la organizacion. Disponible desde hoy</p></div>
-                                    <div class="caption link" data-animate="slideAppearRightToLeft" data-delay="800" data-length="300"><a href="http://www.google.com.ec/">Leer m&aacutes!</a></div>
-                                </div>
-                                <div class="caption img-html5" data-animate="slideAppearLeftToRight" data-delay="200">
-                                    <img src="../public/images/html5.png">
-                                </div>
+            <div class="bs-example col-md-8" data-example-id="carousel-with-captions">
+                <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-captions" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-captions" data-slide-to="1" class=""></li>
+                        <li data-target="#carousel-example-captions" data-slide-to="2" class=""></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img data-src="holder.js/900x800/auto/#777:#777" alt="Imagen no disponible" src="../public/images/slide3.jpg" data-holder-rendered="true">
+                            <div class="carousel-caption">
+                                <h3>Bienvenidos!</h3>
+                                <p><h5>Al sitio web de nuestra Parroquia San Gabriel de los Chillos.</h5></p>
+                                <a href="http://www.google.com.ec"><b><h5>Leer mas!</h5></b></a>
                             </div>
-                        </li>
-                        <li>
-                            <div class="slide-body" data-group="slide">
-                                <img src="../public/images/slide.jpg">
-                                <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                                    <h2>Titulo 2</h2>
-                                    <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">Compatible!</div>
-                                    <div class="caption link" data-animate="slideAppearRightToLeft" data-delay="800" data-length="300"><a href="http://www.google.com.ec/">Leer m&aacutes!</a></div>
-                                </div>
-                                <div class="caption img-html5" data-animate="slideAppearLeftToRight" data-delay="200">
-                                    <img src="../public/images/html5.png">
-                                </div>
+                        </div>
+                        <div class="item">
+                            <img data-src="holder.js/900x800/auto/#666:#666" alt="Imagen no disponible" src="../public/images/slide3.jpg" data-holder-rendered="true">
+                            <div class="carousel-caption">
+                                <h3>Second slide label</h3>
+                                <p><h5>Nulla vitae elit libero, a pharetra augue mollis interdum.</h5></p>
+                                <a href="http://www.google.com.ec"><b><h5>Leer mas!</h5></b></a>
                             </div>
-                        </li>
-                        <li>
-                            <div class="slide-body" data-group="slide">
-                                <img src="../public/images/slide.jpg">
-                                <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                                    <h2>Titulo 3</h2>
-                                    <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">For any caption you use!</div>
-                                    <div class="caption link" data-animate="slideAppearRightToLeft" data-delay="800" data-length="300"><a href="http://www.google.com.ec/">Leer m&aacutes!</a></div>
-                                </div>
-                                <div class="caption img-html5" data-animate="slideAppearLeftToRight" data-delay="200">
-                                    <img src="../public/images/html5.png">
-                                </div>
+                        </div>
+                        <div class="item">
+                            <img data-src="holder.js/900x800/auto/#555:#555" alt="Imagen no disponible" src="../public/images/slide3.jpg" data-holder-rendered="true">
+                            <div class="carousel-caption">
+                                <h3>Third slide label</h3>
+                                <p><h5>Nulla vitae elit libero, a pharetra augue mollis interdum.</h5></p>
+                                <a href="http://www.google.com.ec"><h5><b>Leer mas!</b></h5></a>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-                <a class="slider-control left" href="#" data-jump="prev"><</a>
-                <a class="slider-control right" href="#" data-jump="next">></a>
-                <div class="pages">
-                    <a class="page" href="#" data-jump-to="1">1</a>
-                    <a class="page" href="#" data-jump-to="2">2</a>
-                    <a class="page" href="#" data-jump-to="3">3</a>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-captions" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-captions" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div>
-            <!-- Responsive slider - END -->
+            <div class="col-md-4 lecturasB">
+                <br>
+                <blockquote>Lecturas del dia de hoy, {{date("d")}}/{{date("m")}}/{{date("y")}} ({{date("h")}}:{{date("i")}})</blockquote>
+                <h4 class="tlectura">Evangelio: {!! $data['TE'] !!}</h4>
+                <p class="lectura">{!! $data['E'] !!}</p>
+                <br>
+                <h4 class="tlectura">{!! $data['TS'] !!}</h4>
+                <p class="lectura">{!! $data['S'] !!}</p>
+            </div>
             <!-- Responsive calendar - START -->
             <br>
             </br>
             <div class="col-md-6" >
-                <div class="responsive-calendar">
+                <!-- <div class="responsive-calendar">
                     <div class="controls">
                         <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
                         <h4> <span data-head-month></span>  <span data-head-year></span></h4>
@@ -105,7 +103,7 @@
                         <div class="day header">DOM</div>
                     </div>
                     <div class="days" data-group="days"></div>
-                </div>
+                </div> -->
             </div>
             <!-- Responsive calendar - END -->
         </div>

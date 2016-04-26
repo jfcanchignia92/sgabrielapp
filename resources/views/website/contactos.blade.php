@@ -49,13 +49,14 @@
                         <p>Quito - Ecuador</p>
                         <p>Tel&eacutefono: (02) 2863757</p>
                         <p>Email: <a href="mailto:sgabrielchillos@gmail.com">sgabrielchillos@gmail.com</a></p>
-                        <p>SIguenos en: <a href="#">Facebook</a>, <a href="#">Twitter</a></p>
+                        <p>SIguenos en: <a href="#">Facebook</a></p>
                     </address>
                 </div>
                 <div class="col-md-8">
                     <div class="contact-form">
                         <h2>Contactese con nosotros</h2>
                         <form method="post" action="contact-post.html">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div>
                                 <span>Nombre</span>
                                 <span><input type="username" class="form-control" id="userName"></span>

@@ -1,8 +1,9 @@
 <?php namespace App\Http\Controllers;
 
 use App\Ministerio;
-use App\Registro;
+use App\RegistroBautismal;
 use DB;
+use Illuminate\Support\Facades\Redirect;
 class HomeController extends Controller {
 
 	/*
@@ -33,6 +34,10 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
+		return Redirect::to('adminpage\Inicio');
+	}
+	public function inicio()
+	{
 		return view('adminpage\home');
 	}
 	public function  ministerios()
@@ -43,7 +48,7 @@ class HomeController extends Controller {
 	}
 	public function  certificados()
 	{
-		$registros = Registro::all();
+		$registros = RegistroBautismal::all();
 		return view('adminpage\AdminCertificados')->with('registros',$registros);
 	}
 }

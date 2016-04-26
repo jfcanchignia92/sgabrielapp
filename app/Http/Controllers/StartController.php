@@ -14,7 +14,33 @@ class StartController extends Controller {
      */
     public function index()
     {
-        return view('website\home');
+        $today = date('Ymd');
+        $evangeliot =null;
+        $evangelio =null;
+        $salmot =null;
+        $salmo =null;
+        $url = "http://feed.evangelizo.org/v2/reader.php?date=$today&type=reading_st&lang=SP&content=GSP";
+        $h = fopen($url,"r");
+        while (!feof($h)) {
+            $evangeliot .= fgets($h);
+        }
+        $url = "http://feed.evangelizo.org/v2/reader.php?date=$today&type=reading&lang=SP&content=GSP";
+        $h = fopen($url,"r");
+        while (!feof($h)) {
+            $evangelio .= fgets($h);
+        }
+        $url = "http://feed.evangelizo.org/v2/reader.php?date=$today&type=reading_st&lang=SP&content=PS";
+        $h = fopen($url,"r");
+        while (!feof($h)) {
+            $salmot .= fgets($h);
+        }
+        $url = "http://feed.evangelizo.org/v2/reader.php?date=$today&type=reading&lang=SP&content=PS";
+        $h = fopen($url,"r");
+        while (!feof($h)) {
+            $salmo .= fgets($h);
+        }
+        $str = array('TE'=>$evangeliot,'E'=>$evangelio,'TS'=>$salmot,'S'=>$salmo);
+        return view('website\home')->with('data',$str);
     }
     public function ministerios()
     {

@@ -9,4 +9,5 @@ class Ministerio extends Model {
     public $timestamps = false;
     public $primaryKey = 'mnt_id';
 
+
 }

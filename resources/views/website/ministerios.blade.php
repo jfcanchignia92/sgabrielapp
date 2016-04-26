@@ -30,11 +30,23 @@
 @section('content')
     <div class="main_bg"><!-- start main -->
         <div class="container">
+            <br>
+            <ol class="breadcrumb">
+                <b>Usted esta aqui: &nbsp;</b>
+                <li><a href="../home">Inicio</a></li>
+                <li class="active">Servicios Parroquiales</li>
+            </ol>
             <div class="row">
                 <h2>&nbsp;Nuestros Servicios y Ministerios</h2>
                 <br>
+                <a hidden>{{$num = $ministerios->count()}}</a>
+                <a hidden>{{$var = 1}}</a>
                 @foreach ($ministerios as $ministerio)
-                    <div class="col-md-6">
+                    @if($var == 1)
+                        <br><br>
+                        <div class="row">
+                    @endif
+                    <div class="col-md-4">
                         <div><img src="../public/images/{{$ministerio->MNT_IMG}}"></div>
                         <h4>{{$ministerio->MNT_NOMBRE}}</h4>
                         <div class="col-md-10 tech_para">
@@ -45,6 +57,11 @@
                             <a href="ministerios/{{str_replace(" ","_",$ministerio->MNT_NOMBRE)}}" class="fa-btn btn-1 btn-1e">M&aacutes Informaci&oacuten</a>
                         </div>
                     </div>
+                    @if($var == 3)
+                        </div>
+                        <a hidden>{{$var= 0}}</a>
+                    @endif
+                    <a hidden>{{$var= $var+1}}</a>
                 @endforeach
             </div>
         </div>
