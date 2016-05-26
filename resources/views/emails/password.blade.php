@@ -1,1 +1,1 @@
-Click aqu&iacute para restablecer tu contrase&ntildea: {{ url('password/reset/'.$token) }}
+Click aqu&iacute para restablecer tu contrase&ntildea:

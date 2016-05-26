@@ -34,21 +34,10 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return Redirect::to('adminpage\Inicio');
+		return Redirect::to('adminpage/Inicio');
 	}
 	public function inicio()
 	{
-		return view('adminpage\home');
-	}
-	public function  ministerios()
-	{
-		$ministerios = Ministerio::all();
-		//var_dump($ministerios);
-		return view('adminpage\AdminMinisterios')->with('ministerios',$ministerios);
-	}
-	public function  certificados()
-	{
-		$registros = RegistroBautismal::all();
-		return view('adminpage\AdminCertificados')->with('registros',$registros);
+		return view('adminpage/home');
 	}
 }

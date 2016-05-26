@@ -28,13 +28,22 @@
 			.title {
 				font-size: 72px;
 				margin-bottom: 40px;
+				color: black;
+			}
+			.main {
+				font-size: 32px;
+				margin-bottom: 40px;
+				color: black;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Be right back.</div>
+				<h2 class="main"><b>Parroquia Cat&oacute;lica "San Gabriel de los Chillos"</b></h2>
+				<div class="title"><b>Hubo un error en la p&aacute;gina, vuelva a intentarlo m&aacute; tarde.</b></div>
+				<div class="title"><b>Si el error persiste comuniquese con la parroquia.</b></div>
+				<a class="btn btn-info" href="javascript:history.back()"><b>Regresar a la p&aacute;gina anterior</b></a>
 			</div>
 		</div>
 	</body>

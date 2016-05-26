@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login</title>
-
+	<link rel="icon" type="image/png" href="{{url('images/sgabriel2.png')}}"/>
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -27,6 +27,8 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
+			<div class="alert alert-info" role="alert"><p><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Debes iniciar sesi&oacute;n para continuar</p></div>
+			<br>
 			<div class="panel panel-default">
 				<div class="panel-heading"><p>P&aacutegina de Administraci&oacuten de la Parroquia San Gabriel de los Chillos</p></div>
 				<div class="panel-body">
@@ -34,9 +36,8 @@
 						<div class="alert alert-danger">
 							<strong>Ups!</strong> Hay errores en el ingreso de datos.<br><br>
 							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
+								<li>Verifique sus datos</li>
+								<li>Si el error persiste comunisquese con el administrador del sitio.</li>
 							</ul>
 						</div>
 					@endif

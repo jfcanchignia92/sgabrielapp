@@ -2,33 +2,36 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\crud_controllers\FeligresController;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\RegistroBautismal;
 use DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\CreateRegistroBautismalRequest;
+use App\Http\Requests\UpdateRegistroBautismalRequest;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Request;
 
 
 class RegistroBautismalController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 	public function index()
 	{
-		$feligres = new FeligresController();
-		$registros = RegistroBautismal::all()->take(10);
-		$dataRegistros = array();
-		foreach($registros as $reg)
-		{
-			$flg= $feligres->show($reg->FLG_ID);
-			$reg->feligres()->associate($flg);
-			array_push($dataRegistros,$reg);
-		}
-		return $dataRegistros;
+		$registros = DB::table('registros_bautismales')->orderBy('updated_at', 'desc')->take(10)->get();
+		$count = $this->count();
+		$data = array('B'=> $registros,'BC'=> $count);
+		return view('adminpage.AdminRegistrosBautismales')->with('data', $data);
+	}
+
+	public function count()
+	{
+		$count = DB::table('registros_bautismales')->count();
+		return $count +1;
 	}
 
 	/**
@@ -38,7 +41,8 @@ class RegistroBautismalController extends Controller {
 	 */
 	public function create()
 	{
-
+		$count = $this->count();
+		return view('adminpage.AdminBautismalesCreate')->with('count', $count);
 	}
 
 	/**
@@ -46,34 +50,18 @@ class RegistroBautismalController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateRegistroBautismalRequest $request)
 	{
-		$registro = new RegistroBautismal();
-		$feligres = new FeligresController();
-		$flg_id= DB::table('feligreses')->select('FLG_ID')->where('FLG_APELLIDO1', '=', Input::get('Bapellido1'))->where('FLG_APELLIDO2', '=', Input::get('Bapellido2'))->where('FLG_NOMBRE1', '=', Input::get('Bnombre1'))->where('FLG_NOMBRE2', '=', Input::get('Bnombre2'))->get();
-		if($flg_id !=null)
+		$nombre = $request->get('NOMBRE1').' '.$request->get('NOMBRE2').' '.$request->get('APELLIDO1').' '.$request->get('APELLIDO2');
+		$fecha = $request->get('FECHA_NACIMIENTO');
+		$results = DB::select('SELECT * FROM registros_bautismales where CONCAT(NOMBRE1,\' \', NOMBRE2,\' \', APELLIDO1,\' \', APELLIDO2)= :nombre and FECHA_NACIMIENTO =:fecha', ['nombre' => $nombre, 'fecha'=>$fecha]);
+		//dd($results[0]->RGT_NUMERO);
+		if(!empty($results))
 		{
-			$flg= $feligres->show($flg_id);
-			$registro->feligres()->associate($flg);
+			return redirect()->back()->withErrors('Ya Existe un registro con ese nombre y fecha de nacimiento. Registro# '.$results[0]->RGT_NUMERO)->withInput($request->all());
 		}
-		else{
-			$flg = $feligres->store(array(Input::get('Bnombre1'),Input::get('Bnombre2'),Input::get('Bapellido1'),Input::get('Bapellido2'),'F'));
-			$flg_id= DB::table('feligreses')->select('FLG_ID')->where('FLG_APELLIDO1', '=', Input::get('Bapellido1'))->where('FLG_APELLIDO2', '=', Input::get('Bapellido2'))->where('FLG_NOMBRE1', '=', Input::get('Bnombre1'))->where('FLG_NOMBRE2', '=', Input::get('Bnombre2'))->get();
-			dd($flg_id);
-			$registro->feligres()->associate($flg_id);
-		}
-		$registro->RGT_TOMO = Input::get('Btomo');
-		$registro->RGT_PAGINA = Input::get('Bpagina');
-		$registro->RGT_NUMERO = Input::get('Bnumero');
-		$registro->RGT_FECHA = Input::get('B_fecha');
-		$registro->RGT_FECHA_NACIMIENTO = Input::get('B_fechaN');
-		$registro->RGT_PADRE = Input::get('Bpadre');
-		$registro->RGT_MADRE = Input::get('Bmadre');
-		$registro->RGT_PADRINO = Input::get('Bpadrino');
-		$registro->RGT_MADRINA = Input::get('Bmadrina');
-		$registro->RGT_PARROCO = Input::get('Bparroco');
-		$registro->save();
-		return Redirect::to('adminpage\Certificados')->with('notice', 'Elemento ingresado exitosamente!');
+		$registro = RegistroBautismal::create($request->except('_token'));
+		return Redirect::to('adminpage/ArchivoParroquial/RegistrosBautismales')->with('notice', 'Elemento ingresado exitosamente!');
 	}
 
 	/**
@@ -84,7 +72,8 @@ class RegistroBautismalController extends Controller {
 	 */
 	public function show($id)
 	{
-
+		$registro = RegistroBautismal::find($id);
+		return $registro;
 	}
 
 	/**
@@ -95,7 +84,8 @@ class RegistroBautismalController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$registro = RegistroBautismal::findOrFail($id);
+		return view('adminpage/AdminBautismalesUpdate')->with('RB',$registro);
 	}
 
 	/**
@@ -104,9 +94,13 @@ class RegistroBautismalController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(UpdateRegistroBautismalRequest $request, $id)
 	{
-		//
+		$registro = RegistroBautismal::findOrFail($id);
+		$registro->fill($request->except('_token'));
+		$registro->save();
+		return Redirect::to('adminpage/ArchivoParroquial/RegistrosBautismales')->with('notice', 'Elemento modificado exitosamente!');
+
 	}
 
 	/**
@@ -118,6 +112,73 @@ class RegistroBautismalController extends Controller {
 	public function destroy($id)
 	{
 		//
+	}
+
+	/**
+	 * @return mixed
+     */
+	public function findName()
+	{
+		$apellido1= strtolower(Input::get('apellido1'));
+		$apellido2= strtolower(Input::get('apellido2'));
+		if($apellido2 != null)
+		{
+			$registros = DB::table('registros_bautismales')->where('APELLIDO1','=',$apellido1)->where('APELLIDO2','=',$apellido2)->get();
+		}
+		else
+		{
+			$registros = DB::table('registros_bautismales')->where('APELLIDO1','=',$apellido1)->get();
+		}
+		foreach($registros as $r)
+		{
+			DB::table('registros_bautismales')
+				->where('RGT_NUMERO', $r->RGT_NUMERO)
+				->update(['APELLIDO1' => $r->APELLIDO1]);
+		}
+		return Redirect::to('adminpage/ArchivoParroquial/RegistrosBautismales')->with('resultados', $registros);
+	}
+
+	public function findDate()
+	{
+		$dia = Input::get('dia');
+		$mes = Input::get('mes');
+		$anio = Input::get('anio');
+		$fecha = $anio.'-'.$mes.'-'.$dia;
+		if($mes != 0)
+		{
+			if($dia != null)
+			{
+				$registros = DB::table('registros_bautismales')->where('RGT_FECHA','=',$fecha)->get();
+			}
+			else
+			{
+				$registros = DB::select('select * from registros_bautismales where year(RGT_FECHA) = :anio and month(RGT_FECHA) = :mes', ['anio' => $anio, 'mes' => $mes]);
+			}
+		}
+		else
+		{
+				$registros = DB::select('select * from registros_bautismales where year(RGT_FECHA) = :anio', ['anio' => $anio]);
+		}
+		foreach($registros as $r)
+		{
+			DB::table('registros_bautismales')
+				->where('RGT_NUMERO', $r->RGT_NUMERO)
+				->update(['APELLIDO1' => $r->APELLIDO1]);
+		}
+		return Redirect::to('adminpage/ArchivoParroquial/RegistrosBautismales')->with('resultados', $registros);
+	}
+
+	public function findRow()
+	{
+		$numero = Input::get('numero');
+		$registros = DB::table('registros_bautismales')->where('RGT_NUMERO','=',$numero)->get();
+		foreach($registros as $r)
+		{
+			DB::table('registros_bautismales')
+				->where('RGT_NUMERO', $r->RGT_NUMERO)
+				->update(['APELLIDO1' => $r->APELLIDO1]);
+		}
+		return Redirect::to('adminpage/ArchivoParroquial/RegistrosBautismales')->with('resultados', $registros);
 	}
 
 }

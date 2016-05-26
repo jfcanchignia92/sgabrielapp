@@ -45,7 +45,11 @@ return [
 
 		'local' => [
 			'driver' => 'local',
-			'root'   => storage_path().'/app',
+			'root'   => public_path().'/images/ministerios',
+		],
+		'noticias' => [
+			'driver' => 'local',
+			'root'   => public_path().'/images/noticias',
 		],
 
 		's3' => [

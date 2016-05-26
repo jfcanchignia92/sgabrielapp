@@ -1,0 +1,89 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+body {
+    background: #FFFFFF;
+    /*padding: 20px;*/
+}
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+table {
+    font-family: 'Open Sans', Helvetica;
+    color: #efefef;
+    border: 1px solid black;
+    border-spacing: 0;
+
+}
+table tr:nth-child(2n) {
+    background: #eff0f1;
+}
+table tr:nth-child(2n+3) {
+    background: #fff;
+}
+table th, table td {
+    padding: 1.5em;
+    width: 30em;
+    border: 1px solid black;
+}
+
+.days, .time {
+    background: #00aeff;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.time {
+    width: 3em !important;
+}
+
+td li{
+    font-size: 0.7em;
+    color: #3c3c3c;
+}
+
+.mensaje{
+    display: none;
+}
+
+#titulo{
+    display: none;
+}
+
+@media print{
+
+    .days, .time {
+        background: #00aeff;
+        text-transform: uppercase;
+        font-size: 0.8em;
+        text-align: center;
+    }
+    .espacio{
+        display:none;
+    }
+    .boton{
+        display: none;
+    }
+    .breadcrumb{
+        display: none;
+    }
+    .mensaje{
+        display: inline;
+    }
+    #titulo{
+        display: inline;
+    }
+    td li{
+        font-size: 0.5em;
+        color: #3c3c3c;
+    }
+}
+

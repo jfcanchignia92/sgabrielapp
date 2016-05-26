@@ -150,13 +150,13 @@
 	margin: 10px;
 }
 .sponsor img{
-	height: 10%;
+	height: 8%;
 	width: 80%;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
 	.footer-distributed{
 		font: bold 14px sans-serif;
 	}
@@ -178,7 +178,7 @@
 	}
 	.sponsor img{
 		height: 10%;
-		width: 50%;
+		width: 30%;
 	}
 
 	.footer-distributed .footer-company-name{
@@ -189,4 +189,22 @@
 		margin: 0;
 	}
 
+}
+@media only screen and (max-width: 768px) {
+	.sponsor img{
+		height: 8%;
+		width: 40%;
+	}
+}
+@media (max-width: 640px){
+	.sponsor img{
+		height: 15%;
+		width: 40%;
+	}
+}
+@media only screen and (max-width: 480px){
+	.sponsor img{
+		height: 8%;
+		width: 70%;
+	}
 }
